@@ -1,10 +1,12 @@
-package UITests;
+package u.i.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertTrue;
 
 public class TestsTransitionInDesigner {
 
@@ -16,9 +18,10 @@ public class TestsTransitionInDesigner {
     @Description("Этот тест проверяет переход в раздел Конструктор через лого")
     public void TestTransitionInDesignerLogo() throws InterruptedException {
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
+        var InterPage = new InterPage(driver, userData);
 
         // открыть сайт
         MainPage.openMainPage();
@@ -38,7 +41,7 @@ public class TestsTransitionInDesigner {
 
         MainPage.clickLogo();
 
-        MainPage.displayPageDesigner();
+        assertTrue(driver.findElement(MainPage.pageDesigner).isDisplayed());
     }
 
     @Test
@@ -46,9 +49,10 @@ public class TestsTransitionInDesigner {
     @Description("Этот тест проверяет переход в раздел Конструктор через кнопку Конструктор")
     public void TestTransitionInDesignerButtonDesigner() throws InterruptedException {
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
+        var InterPage = new InterPage(driver, userData);
 
         // открыть сайт
         MainPage.openMainPage();
@@ -68,6 +72,6 @@ public class TestsTransitionInDesigner {
 
         MainPage.clickButtonDesigner();
 
-        MainPage.displayPageDesigner();
+        assertTrue(driver.findElement(MainPage.pageDesigner).isDisplayed());
     }
 }

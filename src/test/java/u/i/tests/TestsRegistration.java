@@ -1,4 +1,4 @@
-package UITests;
+package u.i.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
@@ -18,10 +18,11 @@ public class TestsRegistration {
     public void TestSuccessfulRegistration() throws InterruptedException {
 
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
-        var RegistrationPage = new RegistrationPage(driver);
+        var InterPage = new InterPage(driver, userData);
+        var RegistrationPage = new RegistrationPage(driver, userData);
         var AccountPage = new AccountPage(driver);
 
         // открыть сайт
@@ -49,14 +50,13 @@ public class TestsRegistration {
         // форма входа поле Пароль
         InterPage.inputSixCharactersPasswordInterForm();
 
-
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();
 
         // успешная регистрация, возврат на главную страницу, вход в Личный кабинет
         MainPage.clickBarPersonalAccount();
 
-        AccountPage.accountPageIsDisplayed();
+        assertTrue(driver.findElement(AccountPage.pageAccount).isDisplayed());
     }
 
     @Test
@@ -64,10 +64,11 @@ public class TestsRegistration {
     @Description("Этот тест проверяет вывод ошибки, если пароль меньше шести символов")
     public void TestErrorMessageLessSixCharactersPassword() throws InterruptedException {
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
-        var RegistrationPage = new RegistrationPage(driver);
+        var InterPage = new InterPage(driver, userData);
+        var RegistrationPage = new RegistrationPage(driver, userData);
 
         // открыть сайт
         MainPage.openMainPage();
@@ -89,7 +90,7 @@ public class TestsRegistration {
         RegistrationPage.clickButtonRegistration();
 
         // высветилось сообщение об ошибке "Некорректный пароль"
-        InterPage.displayErrorWrongPasswordInterForm();
+        assertTrue(driver.findElement(InterPage.errorWrongPasswordInterForm).isDisplayed());
     }
 
     @Test
@@ -97,10 +98,11 @@ public class TestsRegistration {
     @Description("Этот тест проверяет минимальное количество символов в поле Пароль")
     public void TestMinimumPasswordSixCharacters() throws InterruptedException {
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
-        var RegistrationPage = new RegistrationPage(driver);
+        var InterPage = new InterPage(driver, userData);
+        var RegistrationPage = new RegistrationPage(driver, userData);
         var AccountPage = new AccountPage(driver);
 
         // открыть сайт
@@ -134,6 +136,6 @@ public class TestsRegistration {
         // успешная регистрация, возврат на главную страницу, вход Личный кабинет
         MainPage.clickBarPersonalAccount();
 
-        AccountPage.accountPageIsDisplayed();
+        assertTrue(driver.findElement(AccountPage.pageAccount).isDisplayed());
     }
 }

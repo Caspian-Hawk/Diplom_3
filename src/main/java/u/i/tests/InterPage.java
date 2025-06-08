@@ -1,11 +1,9 @@
-package UITests;
+package u.i.tests;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
+
 import static org.junit.Assert.assertTrue;
 
 public class InterPage {
@@ -15,42 +13,42 @@ public class InterPage {
     final By buttonInterInterForm = By.xpath(".//button[text()='Войти']");
     private final By fieldEmailInterForm = By.xpath(".//input[@name='name']");
     private final By fieldPasswordInterForm = By.xpath(".//input[@name='Пароль']");
-    private final By errorWrongPasswordInterForm = By.xpath(".//p[text()='Некорректный пароль']");
+    final By errorWrongPasswordInterForm = By.xpath(".//p[text()='Некорректный пароль']");
     private final By linkRegistration = By.xpath(".//p[@class='undefined text text_type_main-default text_color_inactive mb-4']//a[@class='Auth_link__1fOlj']");
     private final By linkPasswordRecovery = By.className("Auth_link__1fOlj");
+    private final UserData userData;
 
-    public InterPage(WebDriver driver) {
+    public InterPage(WebDriver driver, UserData userData) {
         this.driver = driver;
+        this.userData = userData;
     }
-    @Step
+
+    @Step("Click button Inter in form Inter")
     public void clickButtonInterInterForm() {
         driver.findElement(buttonInterInterForm).click();
     }
-    @Step
+
+    @Step("Input six characters in field Password")
     public void inputSixCharactersPasswordInterForm() {
-        driver.findElement(fieldPasswordInterForm).sendKeys("654321");
+        driver.findElement(fieldPasswordInterForm).sendKeys(userData.getPassword());
     }
-    @Step
-    public void inputWrongPasswordInterForm() {
-        driver.findElement(fieldPasswordInterForm).sendKeys("654bn321");
-    }
-    @Step
-    public void displayErrorWrongPasswordInterForm() {
-        driver.findElement(errorWrongPasswordInterForm).isDisplayed();
-    }
-    @Step
+
+    @Step("Input three characters in field Password")
     public void inputThreeCharactersFieldPasswordInterForm() {
         driver.findElement(fieldPasswordInterForm).sendKeys("654");
     }
-    @Step
+
+    @Step("Input email in field Email")
     public void completionFieldEmailInterForm() {
-        driver.findElement(fieldEmailInterForm).sendKeys("ivan.karasev@mail.com");
+        driver.findElement(fieldEmailInterForm).sendKeys(userData.getEmail());
     }
-    @Step
+
+    @Step("Click link registration")
     public void clickLinkRegistration() {
         driver.findElement(linkRegistration).click();
     }
-    @Step
+
+    @Step("Click link password recovery")
     public void clickLinkPasswordRecovery() {
         driver.findElement(linkPasswordRecovery).click();
     }

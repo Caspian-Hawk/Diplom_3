@@ -1,10 +1,12 @@
-package UITests;
+package u.i.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertTrue;
 
 public class TestsDesigner {
 
@@ -26,6 +28,8 @@ public class TestsDesigner {
         MainPage.clickButtonSauces();
 
         MainPage.clickButtonRolls();
+
+        assertTrue(driver.findElement(MainPage.listRolls).isDisplayed());
     }
 
     @Test
@@ -41,6 +45,8 @@ public class TestsDesigner {
         MainPage.openMainPage();
 
         MainPage.clickButtonSauces();
+
+        assertTrue(driver.findElement(MainPage.listSauces).isDisplayed());
     }
 
     @Test
@@ -56,5 +62,7 @@ public class TestsDesigner {
         MainPage.openMainPage();
 
         MainPage.clickButtonFilling();
+
+        assertTrue(driver.findElement(MainPage.listFilling).isDisplayed());
     }
 }

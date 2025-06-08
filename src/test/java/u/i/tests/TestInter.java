@@ -1,10 +1,12 @@
-package UITests;
+package u.i.tests;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Rule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+
+import static org.junit.Assert.assertTrue;
 
 public class TestInter {
 
@@ -17,9 +19,10 @@ public class TestInter {
     public void TestInterInButtonInterAccount() throws InterruptedException {
 
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
+        var InterPage = new InterPage(driver, userData);
         var AccountPage = new AccountPage(driver);
 
         // открыть сайт
@@ -40,7 +43,7 @@ public class TestInter {
         // вход в Личный кабинет
         MainPage.clickBarPersonalAccount();
 
-        AccountPage.accountPageIsDisplayed();
+        assertTrue(driver.findElement(AccountPage.pageAccount).isDisplayed());
     }
 
     @Test
@@ -49,9 +52,10 @@ public class TestInter {
     public void TestInterInButtonBarPersonalAccount() throws InterruptedException {
 
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
+        var InterPage = new InterPage(driver, userData);
         var AccountPage = new AccountPage(driver);
 
         // открыть сайт
@@ -68,7 +72,7 @@ public class TestInter {
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();
 
-        AccountPage.accountPageIsDisplayed();
+        assertTrue(driver.findElement(AccountPage.pageAccount).isDisplayed());
     }
 
     @Test
@@ -77,11 +81,12 @@ public class TestInter {
     public void TestInterInRegistrationForm() throws InterruptedException {
 
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
+        var InterPage = new InterPage(driver, userData);
         var AccountPage = new AccountPage(driver);
-        var RegistrationPage = new RegistrationPage(driver);
+        var RegistrationPage = new RegistrationPage(driver, userData);
 
         // открыть сайт
         MainPage.openMainPage();
@@ -106,7 +111,7 @@ public class TestInter {
         // вход в Личный кабинет
         MainPage.clickBarPersonalAccount();
 
-        AccountPage.accountPageIsDisplayed();
+        assertTrue(driver.findElement(AccountPage.pageAccount).isDisplayed());
     }
 
     @Test
@@ -115,9 +120,10 @@ public class TestInter {
     public void TestInterInLinkPasswordRecover() throws InterruptedException {
 
         WebDriver driver = driverRule.getDriver();
+        UserData userData = driverRule.getUserData();
 
         var MainPage = new MainPage(driver);
-        var InterPage = new InterPage(driver);
+        var InterPage = new InterPage(driver, userData);
         var AccountPage = new AccountPage(driver);
         var RecoverPasswordPage = new RecoverPasswordPage(driver);
 
@@ -143,6 +149,6 @@ public class TestInter {
         // вход в Личный кабинет
         MainPage.clickBarPersonalAccount();
 
-        AccountPage.accountPageIsDisplayed();
+        assertTrue(driver.findElement(AccountPage.pageAccount).isDisplayed());
     }
 }
