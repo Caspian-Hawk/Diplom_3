@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: u.i.tests.TestsDesigner
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.131 s - in u.i.tests.TestsDesigner
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.471 s - in u.i.tests.TestsDesigner

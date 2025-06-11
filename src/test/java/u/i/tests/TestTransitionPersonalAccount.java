@@ -30,9 +30,9 @@ public class TestTransitionPersonalAccount {
         MainPage.clickBarPersonalAccount();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getEmail());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();

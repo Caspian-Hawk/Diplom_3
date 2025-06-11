@@ -32,9 +32,9 @@ public class TestInter {
         MainPage.clickButtonInterAccount();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getEmail());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();
@@ -65,9 +65,9 @@ public class TestInter {
         MainPage.clickBarPersonalAccount();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getEmail());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();
@@ -100,9 +100,9 @@ public class TestInter {
         RegistrationPage.clickButtonInter();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getEmail());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();
@@ -138,9 +138,9 @@ public class TestInter {
         RecoverPasswordPage.clickButtonInterRecoverPasswordForm();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getEmail());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();

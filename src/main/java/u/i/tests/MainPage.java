@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.junit.Assert.assertTrue;
-import static u.i.tests.Constant.MAIN_PAGE;
+import static u.i.tests.Constant.BASE_URI;
 
 public class MainPage {
 
@@ -66,6 +66,6 @@ public class MainPage {
     }
     @Step("Open Main page")
     public void openMainPage() {
-        driver.get(MAIN_PAGE);
+        driver.get(BASE_URI);
     }
 }

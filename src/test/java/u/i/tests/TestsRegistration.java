@@ -35,20 +35,20 @@ public class TestsRegistration {
         InterPage.clickLinkRegistration();
 
         // форма регистрации поле Имя
-        RegistrationPage.inputFieldNameRegistrationForm();
+        RegistrationPage.inputFieldNameRegistrationForm(userData.getName());
         // поле email
-        RegistrationPage.inputFieldEmailRegistrationForm();
+        RegistrationPage.inputFieldEmailRegistrationForm(userData.getEmail());
         // поле пароль
-        RegistrationPage.inputFieldPasswordRegistrationForm();
+        RegistrationPage.inputFieldPasswordRegistrationForm(userData.getPassword());
         // кнопка Зарегистрироваться
         RegistrationPage.clickButtonRegistration();
 
         MainPage.clickBarPersonalAccount();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getPassword());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();
@@ -80,9 +80,9 @@ public class TestsRegistration {
         InterPage.clickLinkRegistration();
 
         // форма регистрации поле Имя
-        RegistrationPage.inputFieldNameRegistrationForm();
+        RegistrationPage.inputFieldNameRegistrationForm(userData.getName());
         // поле email
-        RegistrationPage.inputFieldEmailRegistrationForm();
+        RegistrationPage.inputFieldEmailRegistrationForm(userData.getEmail());
         // поле пароль
         InterPage.inputThreeCharactersFieldPasswordInterForm();
 
@@ -115,20 +115,20 @@ public class TestsRegistration {
         InterPage.clickLinkRegistration();
 
         // форма регистрации поле Имя
-        RegistrationPage.inputFieldNameRegistrationForm();
+        RegistrationPage.inputFieldNameRegistrationForm(userData.getName());
         // поле email
-        RegistrationPage.inputFieldEmailRegistrationForm();
+        RegistrationPage.inputFieldEmailRegistrationForm(userData.getEmail());
         // поле пароль
-        RegistrationPage.inputFieldPasswordRegistrationForm();
+        RegistrationPage.inputFieldPasswordRegistrationForm(userData.getPassword());
         // кнопка Зарегистрироваться
         RegistrationPage.clickButtonRegistration();
 
         MainPage.clickBarPersonalAccount();
 
         // форма входа поле email
-        InterPage.completionFieldEmailInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getName());
         // форма входа поле Пароль
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
 
         // форма входа кнопка Войти
         InterPage.clickButtonInterInterForm();

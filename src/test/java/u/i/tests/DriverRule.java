@@ -12,6 +12,8 @@ import java.time.Duration;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
+import static u.i.tests.Constant.*;
+import io.restassured.response.ValidatableResponse;
 
 public class DriverRule extends ExternalResource {
 
@@ -28,31 +30,25 @@ public class DriverRule extends ExternalResource {
         return userData; // Метод для получения UserData
     }
 
-    public void createUserData() {
+    public ValidatableResponse createUserData() {
         String email = faker.internet().emailAddress();
         String password = faker.internet().password();
         String name = faker.name().fullName();
         userData = new UserData(email, password, name);
 
-        // Создание пользователя через API
-        given()
-                .contentType(JSON)
+        return RestClient.getRequestSpecification()
                 .body(userData)
                 .when()
-                .post("https://stellarburgers.nomoreparties.site/api/auth/register")
-                .then()
-                .statusCode(HttpStatus.SC_OK);
+                .post(CREATE_USER)
+                .then();
     }
 
     public void loginUser() {
-        // Логин пользователя и получение токена
-        String requestBody = String.format("{\"email\":\"%s\",\"password\":\"%s\"}", userData.getEmail(), userData.getPassword());
-
-        String response = given()
+                String response = given()
                 .contentType(JSON)
-                .body(requestBody)
+                .body(userData)
                 .when()
-                .post("https://stellarburgers.nomoreparties.site/api/auth/login")
+                .post(LOGIN_USER)
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .extract()
@@ -62,14 +58,13 @@ public class DriverRule extends ExternalResource {
     }
 
     private void deleteUser() {
-        // Убедитесь, что вы сначала авторизовались, чтобы получить accessToken
         loginUser(); // Получаем токен перед удалением пользователя
 
         // Удаление пользователя через API
         given()
                 .header("Authorization", accessToken) // Используем accessToken
                 .when()
-                .delete("https://stellarburgers.nomoreparties.site/api/auth/user")
+                .delete(DELETE_USER)
                 .then();
     }
 

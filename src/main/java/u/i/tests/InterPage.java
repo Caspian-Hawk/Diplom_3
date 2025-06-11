@@ -29,8 +29,8 @@ public class InterPage {
     }
 
     @Step("Input six characters in field Password")
-    public void inputSixCharactersPasswordInterForm() {
-        driver.findElement(fieldPasswordInterForm).sendKeys(userData.getPassword());
+    public void inputSixCharactersPasswordInterForm(String password) {
+        driver.findElement(fieldPasswordInterForm).sendKeys(password);
     }
 
     @Step("Input three characters in field Password")
@@ -39,8 +39,8 @@ public class InterPage {
     }
 
     @Step("Input email in field Email")
-    public void completionFieldEmailInterForm() {
-        driver.findElement(fieldEmailInterForm).sendKeys(userData.getEmail());
+    public void completionFieldEmailInterForm(String email) {
+        driver.findElement(fieldEmailInterForm).sendKeys(email);
     }
 
     @Step("Click link registration")

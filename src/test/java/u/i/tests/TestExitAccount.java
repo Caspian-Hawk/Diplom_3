@@ -26,8 +26,8 @@ public class TestExitAccount {
 
         MainPage.openMainPage();
         MainPage.clickButtonInterAccount();
-        InterPage.completionFieldEmailInterForm(); // Здесь предполагается, что этот метод использует userData
-        InterPage.inputSixCharactersPasswordInterForm();
+        InterPage.completionFieldEmailInterForm(userData.getEmail());
+        InterPage.inputSixCharactersPasswordInterForm(userData.getPassword());
         InterPage.clickButtonInterInterForm();
         MainPage.clickBarPersonalAccount();
         AccountPage.clickButtonExitAccount();

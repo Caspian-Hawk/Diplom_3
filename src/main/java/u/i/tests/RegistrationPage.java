@@ -21,18 +21,18 @@ public class RegistrationPage {
     }
 
     @Step("Input Email")
-    public void inputFieldEmailRegistrationForm() {
-        driver.findElement(fieldEmailRegistrationForm).sendKeys(userData.getEmail());
+    public void inputFieldEmailRegistrationForm(String email) {
+        driver.findElement(fieldEmailRegistrationForm).sendKeys(email);
     }
 
     @Step("Input Password")
-    public void inputFieldPasswordRegistrationForm() {
-        driver.findElement(fieldPasswordRegistrationForm).sendKeys(userData.getPassword());
+    public void inputFieldPasswordRegistrationForm(String password) {
+        driver.findElement(fieldPasswordRegistrationForm).sendKeys(password);
     }
 
     @Step("Input Name")
-    public void inputFieldNameRegistrationForm() {
-        driver.findElement(fieldNameRegistrationForm).sendKeys(userData.getName());
+    public void inputFieldNameRegistrationForm(String name) {
+        driver.findElement(fieldNameRegistrationForm).sendKeys(name);
     }
 
     @Step("Click button Registration")
